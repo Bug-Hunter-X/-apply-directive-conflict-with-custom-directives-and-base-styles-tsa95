@@ -1,0 +1,15 @@
+The solution is to avoid naming collisions.  Refactor your custom directives to use unique property names that do not overlap with existing Tailwind utility classes.  Alternatively, you can use more specific selectors or create entirely new classes to resolve the conflict.  Here's an example:
+
+```css
+/* bugSolution.css */
+@layer utilities {
+  @define-directive my-custom-style {
+    @apply bg-gray-200 custom-padding-4; /* Renamed custom padding */
+  }
+}
+
+.custom-padding-4 {
+  padding: 4rem; /* Define custom padding with unique name */
+}
+```
+This ensures that the custom padding isn't overridden by the Tailwind `p-4` utility class.
